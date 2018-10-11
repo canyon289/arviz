@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from ..data import convert_to_dataset
 from .kdeplot import plot_kde
 from .plot_utils import _scale_fig_size, get_bins, xarray_var_iter, make_label, get_coords
+from ..utils import _var_names
 
 
 def plot_joint(
@@ -56,6 +57,8 @@ def plot_joint(
     ax_hist_x : matplotlib axes, x (top) distribution
     ax_hist_y : matplotlib axes, y (right) distribution
     """
+    var_names = _var_names(var_names)
+
     valid_kinds = ["scatter", "kde", "hexbin"]
     if kind not in valid_kinds:
         raise ValueError(
@@ -63,6 +66,7 @@ def plot_joint(
         )
 
     data = convert_to_dataset(data, group="posterior")
+    var_names = _var_names(var_names)
 
     if coords is None:
         coords = {}

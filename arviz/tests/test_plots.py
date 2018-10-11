@@ -129,6 +129,7 @@ def test_plot_density_discrete(discrete_model):
     "kwargs",
     [
         {},
+        {"var_names": "mu"},
         {"var_names": ["mu", "tau"]},
         {"combined": True},
         {"lines": [("mu", {}, [1, 2])]},
