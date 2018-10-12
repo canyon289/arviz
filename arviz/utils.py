@@ -3,22 +3,22 @@ General utilities
 """
 
 
-def _var_names(var_name):
-    """Handles var_name input across arviz
+def _var_names(var_names):
+    """Handles var_names input across arviz
 
     Parameters
     ----------
-    var_name: str, list or None
+    var_names: str, list, or None
 
     Returns
     -------
     var_name: list or None
     """
-    if var_name is None:
+    if var_names is None:
         return None
 
-    elif isinstance(var_name, str):
-        return [var_name]
+    elif isinstance(var_names, str):
+        return [var_names]
 
     else:
-        return var_name
+        return var_names
