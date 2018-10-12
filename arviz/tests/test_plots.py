@@ -158,17 +158,18 @@ def test_plot_trace_discrete(discrete_model):
 @pytest.mark.parametrize(
     "args_expected",
     [
-        (dict(), (1,)),
-        (dict(r_hat=True, quartiles=False), (2,)),
-        (dict(var_names=["mu"], colors="C0", eff_n=True, combined=True), (2,)),
-        (dict(kind="ridgeplot", r_hat=True, eff_n=True), (3,)),
+        ({}, 1),
+        ({"var_names": "mu"}, 1),
+        ({"r_hat": True, "quartiles": False}, 2),
+        ({"var_names": ["mu"], "colors":"C0", "eff_n": True, "combined":True}, 2),
+        ({"kind": "ridgeplot", "r_hat": True, "eff_n": True}, 3),
     ],
 )
 def test_plot_forest(models, model_fits, args_expected):
     obj = [getattr(models, model_fit) for model_fit in model_fits]
     args, expected = args_expected
     _, axes = plot_forest(obj, **args)
-    assert axes.shape == expected
+    assert axes.shape == (expected,)
 
 
 def test_plot_forest_single_value():
