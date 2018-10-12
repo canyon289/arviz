@@ -243,7 +243,7 @@ def test_plot_khat():
     "kwargs",
     [
         {
-            "var_names": ["theta"],
+            "var_names": "theta",
             "divergences": True,
             "coords": {"theta_dim_0": [0, 1]},
             "plot_kwargs": {"marker": "x"},
@@ -253,7 +253,7 @@ def test_plot_khat():
             "divergences": True,
             "plot_kwargs": {"marker": "x"},
             "divergences_kwargs": {"marker": "*", "c": "C"},
-            "var_names": ["theta"],
+            "var_names": ["theta", "mu"],
         },
         {"kind": "kde", "var_names": ["theta"]},
         {
