@@ -356,6 +356,7 @@ def test_plot_autocorr_var_names(models, var_names):
     "kwargs",
     [
         {},
+        {"var_names": "mu"},
         {"var_names": ("mu", "tau")},
         {"rope": (-2, 2)},
         {"rope": {"mu": [{"rope": (-2, 2)}], "theta": [{"school": "Choate", "rope": (2, 4)}]}},
