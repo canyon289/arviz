@@ -304,10 +304,11 @@ def test_plot_ppc_discrete(kind):
 
 
 @pytest.mark.parametrize("model_fit", ["pymc3_fit", "stan_fit", "pyro_fit"])
-def test_plot_violin(models, model_fit):
+@pytest.mark.parametrize("var_names", (None, "mu", ["mu", "tau"]))
+def test_plot_violin(models, model_fit, var_names):
     obj = getattr(models, model_fit)
-    axes = plot_violin(obj)
-    assert axes.shape[0] >= 10
+    axes = plot_violin(obj, var_names=var_names)
+    assert axes.shape
 
 
 def test_plot_violin_discrete(discrete_model):
