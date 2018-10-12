@@ -346,6 +346,12 @@ def test_plot_autocorr_combined(models, model_fit):
     )
 
 
+@pytest.mark.parametrize("var_names", (None, "mu", ["mu", "tau"]))
+def test_plot_autocorr_var_names(models, var_names):
+    axes = plot_autocorr(models.pymc3_fit, combined=True)
+    assert axes.shape
+
+
 @pytest.mark.parametrize(
     "kwargs",
     [
