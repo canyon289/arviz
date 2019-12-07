@@ -146,14 +146,6 @@ def plot_dist(
         hist_kwargs.setdefault("cumulative", cumulative)
         hist_kwargs.setdefault("color", color)
         hist_kwargs.setdefault("label", label)
-        hist_kwargs.setdefault("rwidth", 0.9)
-        hist_kwargs.setdefault("align", "left")
-        hist_kwargs.setdefault("density", True)
-
-        if rotated:
-            hist_kwargs.setdefault("orientation", "horizontal")
-        else:
-            hist_kwargs.setdefault("orientation", "vertical")
 
     dist_plot_args = dict(
         # User Facing API that can be simplified

@@ -27,10 +27,21 @@ def _plot_dist_mpl(
     hist_kwargs=None,
     ax=None,
 ):
+
     if ax is None:
         ax = plt.gca()
 
     if kind == "hist":
+
+        hist_kwargs.setdefault("rwidth", 0.9)
+        hist_kwargs.setdefault("align", "left")
+        hist_kwargs.setdefault("density", True)
+
+        if rotated:
+            hist_kwargs.setdefault("orientation", "horizontal")
+        else:
+            hist_kwargs.setdefault("orientation", "vertical")
+
         ax = _histplot_mpl_op(
             values=values, values2=values2, rotated=rotated, ax=ax, hist_kwargs=hist_kwargs
         )
