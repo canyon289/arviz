@@ -281,6 +281,7 @@ class ExampleGenerator:
                     first_par = paragraphs[0]
             break
 
+        # Determine thumbnail sizing
         thumbloc = None
         for i, line in enumerate(docstring.split("\n")):
             m = re.match(r"^_thumb: (\.\d+),\s*(\.\d+)", line)
