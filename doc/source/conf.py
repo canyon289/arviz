@@ -254,3 +254,7 @@ intersphinx_mapping = {
     "bokeh": ("https://docs.bokeh.org/en/latest/", None),
     "scipy": ("https://docs.scipy.org/doc/scipy/reference/", None),
 }
+
+html_js_files = [
+    'js/isotope.pkgd.min.js',
+]
